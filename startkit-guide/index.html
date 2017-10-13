@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="RU">
+  <!-- https://www.sitepoint.com/web-foundations/iso-2-letter-language-codes/ - коды языков-->
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="utf-8">
+    <script src="js/common.js"></script>
+    <script src="js/main.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>HuskyJam Start kit</title>
+  </head>
+  <body>
+    <header class="header container">
+      <div class="logo">
+        <h1 class="h1">HuskyJam Start kit</h1>
+        <div class="h1__note">Gulp + Webpack + Jade + Stylus</div>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="https://gitlab.huskyjam.com/alex/Frontend-StartKit" target="_blank">HuskyJam Start kit</a></li>
+          <li><a href="http://frontend.docs.huskyjam.com/" target="_blank">Стандарты разработки</a></li>
+          <!--li-->
+          <!--    a(href="#") Best practices-->
+        </ul>
+      </nav>
+    </header>
+    <main role="main">
+      <main rel="main" class="container content">
+        <section class="note">
+          <p>Запускать на 6 версии Node.js</p>
+        </section>
+        <section>
+          <h2 class="h2">NPM команды</h2>
+          <ul class="text_list">
+            <li> Запустить сборку в development окружении с watch и live-reload сервером
+              <pre><code class="language-bash">npm run dev</code></pre>
+            </li>
+            <li>Собрать build для продакшена
+              <pre><code class="language-bash">npm run build</code></pre>
+            </li>
+            <li>
+              Создать компонент. <b>componentName</b> - обязательный параметр, имя компонента. По умолчанию создаются файлы .styl и .jade.
+              Файл .jade создается с префиксом _ , чтобы отфильтровать его при сборке шаблона. [js yml json] - необязательные параметры для создания файлов соотвествующего типа.
+              <pre><code class="language-bash">npm run add componentName [js yml json]</code></pre>
+            </li>
+            <li>
+                Добавить страницу.
+              <pre><code class="language-bash">npm run add page pageName [js yml json]</code></pre>
+            </li>
+            <li>Удалить компонент или страницу.
+              <pre><code class="language-bash">npm run rm componentOrPageName</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2 class="h2">Gulp команды</h2>
+          <ul class="text_list">
+            <li><b>gulp assets</b>&nbsp;- скопировать файлы из dev/assets в корень build</li>
+            <li><b>gulp build</b>&nbsp;- собрать билд для production. Для корректной работы запускать с NODE_ENV=production. То же самое, что <b> npm run build</b>.</li>
+            <li><b>gulp</b>&nbsp;- дефолтная команда, собирает и следит за изменениями в dev, запускать с NODE_ENV=development. То же самое, что <b> npm run dev</b>.</li>
+            <li><b>gulp imagemin</b>&nbsp;- сжать изображения и скопировать их в папку build/img</li>
+            <li><b>gulp jade</b>&nbsp;- собрать jade файлы в html</li>
+            <li><b>gulp serve</b>&nbsp;- запустить локальный сервер с livereload</li>
+            <li><b>gulp sprite</b>&nbsp;- собрать спрайты</li>
+            <li><b>gulp styles</b>&nbsp;- собрать стили</li>
+            <li><b>gulp watch</b>&nbsp;- следить за изменениями в dev</li>
+            <li><b>gulp webpack</b>&nbsp;- собрать js</li>
+          </ul>
+        </section>
+        <section>
+          <h2 class="h2">Структура проекта</h2>
+          <div class="text_image"><img src="img/file_structure.png" alt="file_structure" class="structure">
+            <ul class="text_list">
+              <li><b>build</b>&nbsp;- готовая сборка</li>
+              <li><b>dev</b>&nbsp;- исходники</li>
+              <li><b>dev/assets</b>&nbsp;- файлы, которые не требуют никакой обработки, например, шрифты. Отсюда gulp скопирует их в корень сборки.</li>
+              <li><b>dev/components</b>&nbsp;- блоки сайта (header, footer, nav, slider etc).
+                Каждый компонент может содержать файлы разных типов, которые иклудятся в соотвествующую часть проекта: скрипты в js/main.js, стили - в stylus/styles.styl, и тд.
+              </li>
+              <li><b>dev/img</b>&nbsp;- изображения</li>
+              <li><b>dev/img/sprite</b>&nbsp;- иконки для спрайта.
+                Каждая иконка должна быть в двух версиях - для стандартных дисплеев и для ретины. Называем их соответственно filename.png и filename@2x.png
+              </li>
+              <li><b>dev/common/</b> - общие файлы (скрипты, стили, шаблоны) для всего проекта</li>
+              <li><b>dev/common/js/common.js</b>&nbsp;
+                    <br>
+                    #v1 - точка входа для js скриптов. Подключаем сюда все из компонентов и библиотек.
+                    <br>
+                    или
+                    <br>
+                    #v2 - общие скрипты для всех страниц. Для отдельных страниц создаются свои точки входа в которые подключаются нужные для страницы скрипты.
+              </li>
+              <li><b>dev/pages</b>&nbsp;- страницы сайта.
+                Отправляются в корень папки build и доступны на 127.0.0.1:3000/pagename.html
+              </li>
+              <li><b>dev/common/styles</b>&nbsp;- общие стили сайта, не относящиеся к конкретным компонентам. А так же миксины, переменные и все такое.</li>
+              <li><b>dev/common/styles/styles.styl</b>&nbsp;- собираем тут все стили в нужном порядке.</li>
+              <li><b>dev/common/styles/mixins.styl, dev/stylus/placeholder.styl</b>&nbsp;- миксины, плейсхолдеры.</li>
+              <li><b>dev/common/styles/vars.styl</b>&nbsp;- переменные и настройки проекта.</li>
+              <li><b>dev/common/styles/common.styl</b>&nbsp;- общие и глобальные стили проекта.</li>
+              <li><b>dev/common/styles/fonts.styl</b>&nbsp;- подключение шрифтов.</li>
+              <li><b>dev/common/styles/sprite.styl</b>&nbsp;- сборочный файл для спрайтов.</li>
+              <li><b>gulp</b>&nbsp;- таски</li>
+              <li><b>backstop.json</b>&nbsp;- конфиг для регрессивного тестирования. Настраиваются брейкпойнты, страницы, блоки, которые надо и не надо тестить.</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h2 class="h2">Stylus плагины</h2>
+          <ul class="text_list">
+            <li><b><a href="https://github.com/jescalan/rupture" target="_blank">rupture</a></b>&nbsp;- плагин для media-queries</li>
+            <li><b><a href="https://github.com/tj/nib" target="_blank">nib</a></b>&nbsp;- набор миксинов</li>
+          </ul>
+        </section>
+        <section>
+          <h2 class="h2">Normalize.css</h2>
+          <ul class="text_list">
+            <li>Для унификации базовых стилей подключен <b><a href="https://necolas.github.io/normalize.css/" target="_blank">normalize.css</a></b></li>
+          </ul>
+        </section>
+        <section>
+          <h2 class="h2">Stylus миксины</h2>
+          <ul class="text_list">
+            <li><b>retina_sprite</b></li>
+            <li>
+              Сохранить в папку <b>dev/img/sprite</b> две версии картинки <b>imgname.png</b> и <b>imgname@2x.png</b>.
+              Переменная для спрайта будет доступна в виде <b>$s-imgname</b>.
+              Добавить к свойствам селектора миксин <b>retina_sprite</b> и передать ему в качестве аргумента <b>$s-imgname</b>.
+              <pre><code class="language-stylus">.icon--arrow
+  retina_sprite($s-arrow-right)
+</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2 class="h2">PostCSS плагины</h2>
+          <ul class="text_list">
+            <li><a href="https://github.com/peterramsing/lost" target="_blank">lost grid</a>&nbsp; сетка</li>
+            <li><a href="https://github.com/hail2u/node-css-mqpacker" target="_blank">css-mqpacker</a>&nbsp; складывает все media queries в конец файла</li>
+            <li><a href="https://github.com/postcss/postcss-focus" target="_blank">postcss-focus</a>&nbsp; добавляет :focus стейт, если он не описан, по аналогии с :hover</li>
+            <li><a href="https://github.com/luisrudge/postcss-flexbugs-fixes" target="_blank">postcss-flexbugs-fixes</a>&nbsp; фиксит баги флексбокса</li>
+            <li><a href="https://www.npmjs.com/package/postcss-pr" target="_blank">postcss-pr</a>&nbsp; заменяет пиксели на rm (пример: 16pr = 1rm)</li>
+            <li><a href="https://www.npmjs.com/package/postcss-pe" target="_blank">postcss-pe</a>&nbsp; заменяет пиксели на em (пример: 16pe = 1em)</li>
+            <li>Можно дополнительно использовать любые другие postcss-плагины, добавляя их в таск styles
+              <pre class="language-js"><code>.pipe($.stylus({
+    use: [nib(),rupture(), poststylus([
+        'lost',
+        cssMqpacker({
+            sort: function (a, b) {
+                return b.localeCompare(a);
+            }
+        }),
+        'postcss-focus',
+        'postcss-pe',
+        'postcss-pr',
+        'postcss-flexbugs-fixes',
+        ...
+    ])]
+}))</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2 class="h2">Подключение jquery плагинов</h2>
+          <ul class="text_list">
+            <li>В файле компонента
+              <pre><code class="language-js">import 'slick-carousel';
+import 'modules/slick-carousel/slick/slick.css';
+export default () => {
+  $('.slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1
+  });
+}</code></pre>
+            </li>
+            <li>В файле main.js
+              <pre><code class="language-js">import slider from '../components/slider/slider'
+$(function(){
+    slider();
+});</code></pre>
+            </li>
+            <li>Если возникнут проблемы, вот тут есть варианты решения:&nbsp;<a href="http://stackoverflow.com/a/28989476" target="_blank">Managing Jquery plugin dependency in webpack</a></li>
+          </ul>
+          <section></section>
+          <h2 class="h2">Тестирование BackstopJS</h2>
+          <ul class="text_list">
+            <li>В директории
+              <pre><code class="language-bash">./node_modules/backstopjs</code></pre>выполнить
+              <pre><code class="language-bash">npm run reference</code></pre>для создания эталонных скриншотов. Затем, после внесения изменений -
+              <pre><code class="language-bash">npm run test</code></pre>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </main>
+  </body>
+</html>

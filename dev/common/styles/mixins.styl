@@ -1,0 +1,134 @@
+// em
+em(pxval, fs= false, base= browser_fs)
+    if fs and unit(fs) == 'em'
+        (pxval / (base * fs))em
+    else if fs and unit(fs) == 'px'
+        (pxval / fs)em
+    else
+        (pxval / base)em
+
+
+// rem
+rem(pxval, base= browser_fs)
+    (pxval / base)rem
+
+
+// palceholder
+placeholder()
+    &::-webkit-input-placeholder
+        {block}
+    &:-moz-placeholder
+        {block}
+    &::-moz-placeholder
+        {block}
+    &:-ms-input-placeholder
+        {block}
+
+
+// Sprite mixin - START
+
+spriteWidth($sprite)
+    width $sprite[4]
+
+spriteHeight($sprite)
+    height $sprite[5]
+
+spritePosition($sprite)
+    background-position $sprite[2] $sprite[3]
+
+spriteImage($sprite)
+    background-image url(../img/$sprite[8])
+
+
+spriteWidth_2x($sprite) {
+    width: ($sprite[4]);
+}
+
+spriteHeight_2x($sprite) {
+    height: ($sprite[5]);
+}
+
+spritePosition_2x($sprite) {
+    background-position: ($sprite[11]/2) ($sprite[12]/2);
+}
+
+spriteImage_2x($sprite) {
+    background-image: url(../img/$sprite[17]);
+}
+sprite_2x($sprite)
+    spriteImage_2x($sprite)
+    spritePosition_2x($sprite)
+    spriteWidth_2x($sprite)
+    spriteHeight_2x($sprite)
+    background-size ($sprite[15]/2) ($sprite[16]/2)
+
+sprite($sprite)
+    if !match('hover', selector()) && !match('active', selector())
+        spriteImage($sprite)
+    spritePosition($sprite)
+    spriteWidth($sprite)
+    spriteHeight($sprite)
+
+retina_sprite($sprite)
+    sprite($sprite)
+    @media (-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi)
+        sprite_2x($sprite)
+
+// Sprite mixin - END
+
+
+// nib/positions.styl
+// =================
+// size.styl
+size()
+    if length(arguments) == 1
+        width: arguments[0]
+        height: arguments[0]
+    else
+        width: arguments[0]
+        height: arguments[1]
+
+// positions.styl
+-pos(type, args)
+    i = 0
+    position: unquote(type)
+    for j in (1..4)
+        if length(args) > i
+            {args[i]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+        i += 1
+
+fixed()
+    -pos('fixed', arguments)
+
+absolute()
+    -pos('absolute', arguments)
+
+relative()
+    -pos('relative', arguments)
+
+
+// @media mixins (Rapture replace)
+// =================
+above(val)
+    @media only screen and (min-width: val)
+        {block}
+
+below(val)
+    @media only screen and (max-width: val)
+        {block}
+
+between(min, max)
+    @media only screen and (min-width: min) and (max-width: max)
+        {block}
+
+retina()
+    @media only screen and (min-resolution: 2dppx), only screen and (max-width: 192dpi)
+        {block}
+
+landscape()
+    @media only screen and (orientation: landscape)
+        {block}
+
+portrait()
+    @media only screen and (orientation: portrait)
+        {block}

@@ -1,0 +1,73 @@
+extends ../../common/jade/_default
+
+block pageInfo
+	- var page = {}
+	- page.id = 'index'
+	- page.title = 'HuskyJam Start kit'
+	- page.description = page.title
+
+block og
+	//- open graph
+	+og({type: 'website', title: page.title, description: page.description, url: '', img: '', locale: ''})
+
+block content
+
+	main.main
+		include ../../components/intro/_old-version.jade
+		include ../../components/header/_header.jade
+
+		.main__container
+
+			.main__intro
+				h2.main__title
+					span Министерство Труда<br>и социальной защиты
+					br
+					span Российской Федерации
+
+
+			section.main-news.main-news-big
+				.main-news__image
+					img(src="", alt="")
+
+				.main-news__wrap
+					h3.main-news__title
+					.main-news__date 3 марта 2017 года, 14:30
+
+			.main__row
+				section.main-news
+					.main-news__image
+						img(src="", alt="")
+
+					.main-news__wrap
+						h3.main-news__title
+						.main-news__date 3 марта 2017 года, 14:30
+
+				section.main-news
+					.main-news__image
+						img(src="", alt="")
+
+					.main-news__wrap
+						h3.main-news__title
+						.main-news__date 3 марта 2017 года, 14:30
+
+				section.main-news
+					.main-news__image
+						img(src="", alt="")
+
+					.main-news__wrap
+						h3.main-news__title
+						.main-news__date 3 марта 2017 года, 14:30
+
+			.main-active
+				.main-services
+					.main-services__title Услуги
+				.main-parts
+					.main-parts__title Участвуйте
+
+
+
+
+
+			include ../../components/footer/_footer.jade
+
+

@@ -1,0 +1,47 @@
+// ==========
+// Font
+// ==========
+font_default = "Arial", sans-serif
+custom_font = 'custom'
+body_font = custom_font, font_default
+
+// ==========
+// Base Settings
+// ==========
+browser_fs = 16px // used for rem, em functions
+html_bg = white
+body_color = black
+body_lh = 1.1
+
+// ==========
+// Responsive
+// ==========
+
+// точки
+w768 = 768px
+w1440 = 1440px
+
+
+// контейнеры
+containers = {
+    container: { // classname
+        default_gutter: 15px, // default gutter [px or 0]
+        breakpoints: {
+            '0': 768px 668px 0 // container-breakpoint container-width [container-gutter]
+            '1': 1280px 1070px 20px
+        }
+    }
+}
+
+// Начиная с ширины `1440px` добавляется коэфициент `html {font-size 1.25vw}`
+vw_scale = false // w1440 1.25vw
+
+// ==========
+// Lost Grid Settings
+// ==========
+@lost gutter 0; // override default gutter
+
+// ==========
+// Project variables
+// ==========
+

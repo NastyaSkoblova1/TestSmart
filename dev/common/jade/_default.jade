@@ -1,0 +1,42 @@
+include _mixin
+
+block pageInfo
+
+doctype html
+html(lang="RU")
+    //- https://www.sitepoint.com/web-foundations/iso-2-letter-language-codes/ - коды языков
+    head
+        meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        //- shrink-to-fit for ios9 http://kihlstrom.com/2015/shrink-to-fit-no-fixes-zoom-problem-in-ios-9/
+        meta(name="description" content= page.description)
+        title= page.title
+
+        // OG
+        block og
+        // /OG
+
+        // Favicon
+        // /Favicon
+
+        // Styles
+        block styles
+            link(rel="stylesheet", href="css/styles.css")
+        // /Styles
+
+        // JS Head
+        block jshead
+            script(defer, src="js/common.js")
+        // /JS Head
+
+    body
+        // JS Top
+        block jstop
+        // /JS Top
+
+        block content
+
+        // JS Bottom
+        block jsbottom
+        // /JS Bottom

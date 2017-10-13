@@ -1,0 +1,36 @@
+.main
+	&__container
+		margin-left 11%
+		margin-right 11%
+		
+	&__row
+		display flex
+		
+.main-news
+	display flex
+	flex-direction column
+	width calc(99.9999% * 1/3)
+	
+	&:not(:last-child)
+		margin-right 30pe
+
+.main-news-big
+	flex-direction row
+	width 100%
+	
+	.main-news__image
+		width 65.625%
+		
+	.main-news__wrap
+		width calc(99.9999% - 65.625%)
+		padding-left 30pe
+
+.main-active
+	display flex
+
+.main-services
+	width 65.625%
+
+.main-parts
+	width calc(99.9999% - 65.625%)
+	padding-left 30pe

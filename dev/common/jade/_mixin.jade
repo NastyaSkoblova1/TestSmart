@@ -1,0 +1,5 @@
+//- Open Graph
+mixin og(og_obj)
+    each content, property in og_obj
+        if content
+            meta(property="og:#{property}" content= content)
