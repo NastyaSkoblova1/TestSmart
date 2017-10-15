@@ -13,61 +13,74 @@ block og
 block content
 
 	main.main
-		include ../../components/intro/_old-version.jade
-		include ../../components/header/_header.jade
+		//- include ../../components/intro/_old-version.jade
+		//- include ../../components/header/_header.jade
 
-		.main__container
+
+		.layout
 
 			.main__intro
 				h2.main__title
-					span Министерство Труда<br>и социальной защиты
+					| Министерство Труда<br>и социальной защиты
 					br
 					span Российской Федерации
 
+				.main__links
+					a(href="").main__links-item Общественная приемная
+					a(href="").main__links-item Популярные сервисы
+					a(href="").main__links-item Ссылка на выбор
 
-			section.main-news.main-news-big
+
+			article.main-news
 				.main-news__image
-					img(src="", alt="")
+					img(src="img/item.jpg", alt="")
 
 				.main-news__wrap
-					h3.main-news__title
+					h3.main-news__title Министр Максим Топилин представил три обсуждаемых варианта повышения МРОТ
 					.main-news__date 3 марта 2017 года, 14:30
 
 			.main__row
-				section.main-news
-					.main-news__image
-						img(src="", alt="")
+				article.news
+					.news__image
+						img(src="img/item1.jpg", alt="")
 
-					.main-news__wrap
-						h3.main-news__title
-						.main-news__date 3 марта 2017 года, 14:30
+					.news__wrap
+						h3.news__title Телефонный разговор с Премьер-министром Венгрии Виктором Орбаном
+						.news__date 3 марта 2017 года, 14:30
 
-				section.main-news
-					.main-news__image
-						img(src="", alt="")
+				article.news
+					.news__image
+						img(src="img/item2.jpg", alt="")
 
-					.main-news__wrap
-						h3.main-news__title
-						.main-news__date 3 марта 2017 года, 14:30
+					.news__wrap
+						h3.news__title Руководители социально-трудовых ведомств России и Киргизской Республики обсудили вопросы сотрудничества между странами
+						.news__date 3 марта 2017 года, 14:30
 
-				section.main-news
-					.main-news__image
-						img(src="", alt="")
+				article.news
+					.news__image
+						img(src="img/item3.jpg", alt="")
 
-					.main-news__wrap
-						h3.main-news__title
-						.main-news__date 3 марта 2017 года, 14:30
+					.news__wrap
+						h3.news__title Министр Максим Топилин провел заседание рабочей группы по социальным вопросам Республики Крым и г. Севастополя	
+						.news__date 3 марта 2017 года, 14:30
 
-			.main-active
-				.main-services
-					.main-services__title Услуги
-				.main-parts
-					.main-parts__title Участвуйте
+			
+		.container-grey
+			.layout
+
+				.main__active
+					.services
+						.services__title Услуги
+
+						.services__items
+							.services__item Популярная услуга 1
+							.services__item Популярная услуга 2
+							.services__item Популярная услуга 3
+							.services__item Популярная услуга 4
+							.services__item
+					.parts
+						.parts__title Участвуйте	
 
 
-
-
-
-			include ../../components/footer/_footer.jade
 
 
