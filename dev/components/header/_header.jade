@@ -1,26 +1,44 @@
 header.header
-	.header__row
+	.row.menu-mobile
+		a(href="") Меню
 		
+	.row.old-version
+		.old-version__beta Beta
 
+		.old-version__warning
+			p.old-version__warning-text Внимание! Данная версия сайта находится в разработке. 
+				a(href="").old-version__warning-link Перейти на старую версию сайта
 
+		a(href="").old-version__close Закрыть
 
-	.header__row._third
-		a(href="").logo
-			img(src="", alt="")
+	.row.details
+		.details__catalog Каталог государственных сайтов РФ
+		.details__features
+			a(href="").details__feature.details__version Для слабовидящих
+			a(href="").details__feature.details__lang English
+			a(href="").details__feature.details__gos Госуслуги
+			a(href="").details__feature.details__mail Написать обращение
+			a(href="").details__feature.details__search
 
-		nav
-			ul
-				li
-					a(href="") О Министерстве
-				li
-					a(href="") Деятельность
-				li
-					a(href="") Документы
-				li
-					a(href="") Госуслуги
-				li
-					a(href="") Открытое министерство
-				li
-					a(href="") Контакты
-				li
-					a(href="") ...
+	.wrapper
+
+		.layout.row
+			a(href="").logo
+				img(src="img/logo.png", alt="")
+
+			nav
+				ul
+					li
+						a(href="") О Министерстве
+					li
+						a(href="") Деятельность
+					li
+						a(href="") Документы
+					li
+						a(href="") Госуслуги
+					li
+						a(href="") Открытое министерство
+					li
+						a(href="") Контакты
+					li
+						a(href="") ...

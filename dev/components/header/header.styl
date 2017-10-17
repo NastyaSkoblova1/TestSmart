@@ -1,21 +1,158 @@
 .header
-	
-	&__row
-		display flex
-		justify-content space-between
-		align-items center
-	
-		&._third
-			padding 30pe 11%
-			border-bottom 1px solid #dedede
-	
 	nav
 		ul
 			@extend $list-reset
 			display flex
 		li
 			&:not(:last-child)
-				padding-right 30pe
+				padding-right 30pr
 		a
 			@extend $link-reset
-			font-size 16pe
+			font-size 16pr
+			font-weight 600
+
+.row
+	display flex
+	justify-content space-between
+	align-items center
+
+.menu-mobile
+	display flex
+	justify-content flex-end
+	padding 20pr 30px
+	background-color #689f38
+	
+	a
+		@extend $link-reset
+		position relative
+		padding-right 55pr
+		font-size 28pr
+		font-weight 600
+		color #ffffff
+		
+		&:after
+			content ''
+			position absolute
+			top 50%
+			right 0
+			transform translateY(-50%)
+			retina_sprite($s-catalog)
+		
+	+above(1024px)
+		display none
+	
+	+below(320px)
+		padding-left 15px
+		padding-right 15px
+
+.old-version
+	padding 10pr 20px
+	font-size 14pr
+	color white
+	background black
+	
+	&__warning-link, &__close
+		@extend $link-reset
+	
+	&__beta
+		padding 5px
+		font-size 10pe
+		font-weight 700
+		text-transform uppercase
+		background #333333
+		border-radius 3px
+	
+	&__warning-text
+		color #888888
+	
+	&__warning-link
+		font-weight 600
+		color white
+	
+	&__close
+		position relative
+		padding-right 26pr
+		font-weight 600
+		
+		&:after
+			content ''
+			position absolute
+			top 50%
+			right 0
+			transform translateY(-50%)
+			retina_sprite($s-close)
+
+.details
+	padding 12pr 20px
+	font-size 14pr
+	font-weight 600
+	color #ffffff
+	background #061a44
+	
+	&__catalog
+		position relative
+		padding-left 30pr
+		
+		&:before
+			content ''
+			position absolute
+			top 50%
+			left 0
+			transform translateY(-50%)
+			retina_sprite($s-catalog)
+	
+	&__features
+		display flex
+		align-items center
+	
+	&__feature
+		@extend $link-reset
+		display block
+		
+		& + &
+			margin-left 20pr
+	
+	&__gos, &__mail
+		padding 12pr 20pr
+		border-width 1px
+		border-style solid
+		border-radius 3px
+	
+	&__gos
+		background-color #689f38
+		border-color #689f38
+		transition all .3s ease
+		
+		&:hover
+			background-color #689f38 - 15%
+			border-color #689f38 - 15%
+	
+	&__mail
+		background-color transparent
+		border-color #515f7c
+	
+	&__search
+		retina_sprite($s-search)
+
+.wrapper
+	padding 30pr 0
+	border-bottom-width 1px
+	border-bottom-style solid
+	border-bottom-color #dedede
+
+.logo
+	display block
+
+.old-version, .details
+	display none
+	
+	+above(1024px)
+		display flex
+
+.wrapper
+	display none
+	
+	+above(1024px)
+		display block
+	
+	

@@ -1,5 +1,161 @@
 .footer
-	display flex
+	padding-bottom 75pr
+	background #f4f4f4
+	
+	&__title
+		@extend $h-reset
+		font-size 48pr
+		font-weight 700
+		line-height 1.3
+		
+		+above(768px)
+			font-size 24pr
+		
+		+below(320px)
+			font-size 36pr
+
+		span
+			font-size 32pr
+			font-weight 400
+			
+			+above(768px)
+				font-size 16pr
+			
+			+below(320px)
+				font-size 26pr
+	
+	nav
+		ul
+			@extend $list-reset
+		
+		li
+			&:not(:last-child)
+				margin-bottom 30pr
+				
+				+above(768px)
+					margin-bottom 15pr
+				
+		a
+			@extend $link-reset
+			display block
+			font-size 26pr
+			font-weight 600
+			
+			+above(768px)
+				font-size 16pr
+				font-weight 400
+		
+		span
+			&._desktop
+				display none
+				
+				+above(768px)
+					display block
+			
+			&._mobile
+				+above(768px)
+					display none
+	
+	&__wrap
+		display flex
+		flex-direction column
+		
+		+above(768px)
+			flex-direction row
+			justify-content space-between
 
 	&__col
-		width calc(99.9999% * 1/3)
+		+above(768px)
+			width calc((100% - 30px * 2) * 1/3)
+			
+		& + &
+			margin-top 35pr
+			
+			+above(768px)
+				margin-top 0
+		
+		&._flex
+			display flex
+			flex-direction column
+			justify-content space-between
+			
+		&._navigation
+			order 1
+			
+			+above(768px)
+				order 0
+		
+		&._adress
+			order 0
+	
+	&__logo
+		@extend $link-reset
+		display none
+		margin-bottom 20px
+		
+		+above(768px)
+			display block
+	
+	&__desc-contact
+		font-size 32pr
+		line-height 1.5
+		
+		+above(768px)
+			font-size 16pr
+			
+		+below(320px)
+			font-size 26pr
+	
+	&__desc-social
+		margin-top 30pr
+	
+	&__desc-social-item
+		@extend $link-reset
+		display inline-block
+		vertical-align middle
+		
+		& + &
+			margin-left 15px
+		
+		&._fb
+			retina_sprite($s-fb)
+			
+		&._twi
+			retina_sprite($s-twi)
+	
+	&__desc-copyright
+		position relative
+		padding-left 35px
+		font-size 20pr
+		line-height 1.3333
+		color #707070
+		
+		+above(768px)
+			font-size 10pr
+		
+		+above(1024px)
+			font-size 12pr
+		
+		+below(320px)
+			font-size 10pr
+		
+		&:before
+			content ''
+			position absolute
+			top 50%
+			left 0
+			transform translateY(-50%)
+			retina_sprite($s-copy)
+			
+		&._desktop
+			display none
+			
+			+above(768px)
+				display block
+		
+		&._mobile
+			order 2
+			
+			+above(768px)
+				display none
+			

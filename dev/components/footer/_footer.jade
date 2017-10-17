@@ -1,30 +1,46 @@
 footer.footer
-	.footer__col.footer__name
-		a(href="").footer__logo
-		h2
-			span Министерство Труда<br>и социальной защиты
-			br
-			span Российской Федерации
+
+	.layout.footer__wrap
+		.footer__col
+			a(href="").footer__logo
+				img(src="img/logo-f.png", alt="")
+
+			h2.footer__title
+				| Министерство труда<br>и социальной защиты
+				br
+				span Российской Федерации
 
 
-	.footer__col.footer__links
-		nav
-			ul
-				l1
-					a(href="")
-				l1
-					a(href="")
-				l1
-					a(href="")
-				l1
-					a(href="")
-				l1
-					a(href="")
-				l1
-					a(href="")
-				l1
-					a(href="")
+		.footer__col._navigation
+			nav
+				ul
+					li
+						a(href="") 
+							span._desktop Версия для мобильных устройств
+							span._mobile Десктопная версия
+					li
+						a(href="") О сайте
+					li
+						a(href="") Карта сайта
+					li
+						a(href="") Контакты
+					li
+						a(href="") RSS
+					li
+						a(href="") Обратная связь
+					li
+						a(href="") Статистика посещаемости сайта
 
-	.footer__col.footer__desc
-		.footer__desc-contacts
-		.footer__desc-copyright
+		.footer__col._flex._adress
+			.footer__desc
+				.footer__desc-contact 109097, Москва, ул. Ильинка, д.9
+				.footer__desc-contact +7 (495) 987-91-01
+				.footer__desc-social
+					a(href="").footer__desc-social-item._fb
+					a(href="").footer__desc-social-item._twi
+
+			.footer__desc-copyright._desktop
+				span Все материалы доступны по лицензии<br>Creative Commons &#171;Attribution&#187; 4.0 Всемирная
+
+		.footer__col.footer__desc-copyright._mobile
+			span Все материалы доступны по лицензии<br>Creative Commons &#171;Attribution&#187; 4.0 Всемирная
